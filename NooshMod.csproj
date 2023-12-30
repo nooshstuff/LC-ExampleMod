@@ -1,0 +1,21 @@
+﻿<Project Sdk="LethalCompany.Plugin.Sdk/1.0.0">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <Nullable>enable</Nullable>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <RootNamespace>NooshMod</RootNamespace>
+    <Title>NOOSH FUNNY TEST MOD</Title>
+    <Description>not real</Description>
+    <PluginId>real.not.noosh</PluginId>
+    <Version>0.0.1</Version>
+    <ThunderWebsiteUrl>YOUR_GITHUB_REPO</ThunderWebsiteUrl>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="MMHOOK_Assembly-CSharp">
+      <HintPath>..\MMHOOK_Assembly-CSharp.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+ 
+</Project>
