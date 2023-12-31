@@ -10,6 +10,7 @@
     <PluginId>real.not.noosh</PluginId>
     <Version>0.0.1</Version>
     <ThunderWebsiteUrl>YOUR_GITHUB_REPO</ThunderWebsiteUrl>
+    <PackageReadMeFile>..\README.md</PackageReadMeFile>
   </PropertyGroup>
 
   <ItemGroup>
