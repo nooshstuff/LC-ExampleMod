@@ -15,7 +15,7 @@
 
   <ItemGroup>
     <Reference Include="MMHOOK_Assembly-CSharp">
-      <HintPath>..\MMHOOK_Assembly-CSharp.dll</HintPath>
+      <HintPath>..\..\MMHOOK_Assembly-CSharp.dll</HintPath>
     </Reference>
   </ItemGroup>
  
