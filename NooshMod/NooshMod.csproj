@@ -10,11 +10,12 @@
     <PluginId>real.not.noosh</PluginId>
     <Version>0.0.1</Version>
     <ThunderWebsiteUrl>YOUR_GITHUB_REPO</ThunderWebsiteUrl>
+    <PackageReadMeFile>..\README.md</PackageReadMeFile>
   </PropertyGroup>
 
   <ItemGroup>
     <Reference Include="MMHOOK_Assembly-CSharp">
-      <HintPath>..\MMHOOK_Assembly-CSharp.dll</HintPath>
+      <HintPath>..\..\MMHOOK_Assembly-CSharp.dll</HintPath>
     </Reference>
   </ItemGroup>
  
