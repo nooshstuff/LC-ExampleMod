@@ -2,21 +2,30 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
-    <Nullable>enable</Nullable>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <RootNamespace>NooshMod</RootNamespace>
-    <Title>NOOSH FUNNY TEST MOD</Title>
-    <Description>not real</Description>
-    <PluginId>real.not.noosh</PluginId>
-    <Version>0.0.1</Version>
-    <ThunderWebsiteUrl>YOUR_GITHUB_REPO</ThunderWebsiteUrl>
+    <Nullable>enable</Nullable>
     <PackageReadMeFile>..\README.md</PackageReadMeFile>
+    <PluginId>real.not.noosh</PluginId>
+    <Title>TEST NOOSH</Title>
+    <Description>not real</Description>
+    <Version>0.0.2</Version>
+    <RootNamespace>NooshMod</RootNamespace>
+    <ThunderId>Noosh-NooshMod</ThunderId>
+    <ThunderWebsiteUrl>https://github.com/nooshstuff/LC-ExampleMod</ThunderWebsiteUrl>
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="NooshMod.csproj.user" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Reference Include="MMHOOK_Assembly-CSharp">
-      <HintPath>..\..\MMHOOK_Assembly-CSharp.dll</HintPath>
+      <HintPath>..\..\vs_includes\MMHOOK_Assembly-CSharp.dll</HintPath>
     </Reference>
   </ItemGroup>
- 
+
+  <Target Name="IncludeBundle" BeforeTargets="PreBuildEvent" Condition="true">
+    <MakeDir Directories="$(TargetDir)publish" Condition="!Exists('$(TargetDir)publish')"/>
+    <Exec Command="cp $(SolutionDir)AssetBundles/nooshmod $(TargetDir)publish/" />
+  </Target>
 </Project>

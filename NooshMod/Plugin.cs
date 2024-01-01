@@ -1,18 +1,33 @@
-﻿using UnityEngine;
+﻿using BepInEx.Configuration;
+using System.Reflection;
+using UnityEngine;
 
 namespace NooshMod
 {
 	[BepInPlugin(GeneratedPluginInfo.Identifier, GeneratedPluginInfo.Name, GeneratedPluginInfo.Version)]
-	public sealed class SamplePlugin : BaseUnityPlugin
+	public class Plugin : BaseUnityPlugin
 	{
+		internal static AssetBundle? NooshAssets;
+		internal static Plugin? Instance;
+		internal static BepInEx.Logging.ManualLogSource? log;
+		internal static ConfigEntry<bool>? configBigJumpEnabled;
 		private void Awake()
 		{
-			// Plugin startup logic
-			Logger.LogInfo($"Plugin {GeneratedPluginInfo.Identifier} is loaded!");
-			Harmony.CreateAndPatchAll(System.Reflection.Assembly.GetExecutingAssembly(), GeneratedPluginInfo.Identifier); //this applies everything in this project with HarmonyPatch
+			if (Instance == null) { Instance = this; }
+			log = Logger;
+			Assembly OwnAssembly = Assembly.GetExecutingAssembly();
 
+			NooshAssets = AssetBundle.LoadFromFile(Path.Combine(Path.GetDirectoryName(OwnAssembly.Location), "nooshmod"));
+
+			configBigJumpEnabled = Config.Bind("Toggles", "BigJumpEnabled", false, "Enable giga jump");
+
+			Harmony.CreateAndPatchAll(OwnAssembly, GeneratedPluginInfo.Identifier); //this applies everything in this project with HarmonyPatch
 			// NOW FOR MONOMOD
-			On.GameNetcodeStuff.PlayerControllerB.Update += PlayerControllerB_Update_Funnybusiness; // this is kinda cool and kinda silly
+			On.GameNetcodeStuff.PlayerControllerB.Update += PlayerControllerB_Update_Funnybusiness;
+
+			ScrapPatcher.Activate();
+
+			Logger.LogInfo($"Plugin {GeneratedPluginInfo.Identifier} is loaded!");
 		}
 
 		private void PlayerControllerB_Update_Funnybusiness(On.GameNetcodeStuff.PlayerControllerB.orig_Update orig, GameNetcodeStuff.PlayerControllerB self)
