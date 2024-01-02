@@ -1,15 +1,15 @@
 ManifestFileVersion: 0
-CRC: 134614496
+CRC: 4028831365
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: abb8d48d0b84239f403f165942f95af5
+    Hash: c9081b1de8e916038e619decb8131997
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 159670af013e8d5314301f49ebab5468
+    Hash: 1c1d404ce56d1dcae58515fb1ecaa670
   IncrementalBuildHash:
     serializedVersion: 2
-    Hash: abb8d48d0b84239f403f165942f95af5
+    Hash: c9081b1de8e916038e619decb8131997
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -34,14 +34,18 @@ ClassTypes:
   Script: {instanceID: 0}
 - Class: 83
   Script: {instanceID: 0}
+- Class: 108
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: 7a68c43fe1f2a47cfa234b5eeaa98012, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: c30496d6ae6d6f907456e10a94e01ec6, type: 3}
-- Class: 114
-  Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 3c36d0a92cbb1f26a39169ef0eae393a, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 3d0cf24d2ccc3b7eab72048d0f57c437, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
 - Class: 115
   Script: {instanceID: 0}
 - Class: 213
@@ -49,6 +53,17 @@ ClassTypes:
 SerializeReferenceClassIdentifiers:
 - AssemblyName: Assembly-CSharp
   ClassName: Battery
+- AssemblyName: Unity.RenderPipelines.HighDefinition.Runtime
+  ClassName: UnityEngine.Rendering.HighDefinition.BoolScalableSettingValue
+- AssemblyName: Unity.RenderPipelines.HighDefinition.Runtime
+  ClassName: UnityEngine.Rendering.HighDefinition.IntScalableSettingValue
 Assets:
+- Assets/Scrap/Gnome/GnomeScrap.prefab
+- Assets/Scrap/Gnome/GnomeScrap.asset
+- Assets/Scrap/Gino/GinoScrap.asset
+- Assets/Scrap/Lantern/LanternScrap.prefab
+- Assets/Scrap/Doll/DollScrap.prefab
+- Assets/Scrap/Doll/DollScrap.asset
+- Assets/Scrap/Lantern/LanternScrap.asset
 - Assets/Scrap/Gino/GinoScrap.prefab
 Dependencies: []

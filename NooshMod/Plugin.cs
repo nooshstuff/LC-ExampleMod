@@ -1,6 +1,9 @@
 ﻿using BepInEx.Configuration;
 using System.Reflection;
+using Unity.Netcode;
 using UnityEngine;
+
+#pragma warning disable CS8602 // Dereference of a possibly null reference.
 
 namespace NooshMod
 {
@@ -42,6 +45,25 @@ namespace NooshMod
 				else { self.sprintMultiplier = Mathf.Lerp(self.sprintMultiplier, 2.25f, Time.deltaTime * 1f); }
 			}
 			else { self.sprintMultiplier = Mathf.Lerp(self.sprintMultiplier, 1f, 10f * Time.deltaTime); }
+		}
+
+		public bool SpawnInItem(string itemname = "GinoScrap", int value = 999)
+		{
+			Item? item = ScrapPatcher.scrapCatelog[itemname].item;
+			if (item == null) { return false; }
+			var position = StartOfRound.Instance.allPlayerScripts[0].gameplayCamera.transform.position;
+			var obj = GameObject.Instantiate(item.spawnPrefab, position, Quaternion.identity, RoundManager.Instance.spawnedScrapContainer);
+			var netObject = obj.GetComponent<NetworkObject>();
+			var grabble = obj.GetComponent<GrabbableObject>();
+			grabble.transform.rotation = Quaternion.Euler(grabble.itemProperties.restingRotation);
+			grabble.fallTime = 0f;
+			if (value > 0) { grabble.SetScrapValue(value); }
+			netObject.Spawn();
+			if (item.isScrap)
+			{
+				RoundManager.Instance.SyncScrapValuesClientRpc([new NetworkObjectReference(netObject)], [value]);
+			}
+			return true;
 		}
 	}
 }

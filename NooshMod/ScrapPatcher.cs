@@ -7,13 +7,20 @@ using UnityEngine;
 
 namespace NooshMod
 {
-	internal class ScrapPatcher
+	public class ScrapPatcher
 	{
-		public static List<ScrapEntry> _scrapItems = new List<ScrapEntry>();
-		public static List<string> _allMoons = new List<string>() { "ExperimentationLevel", "AssuranceLevel", "VowLevel", "OffenseLevel", "MarchLevel", "RendLevel", "DineLevel", "TitanLevel" };
+		public static Dictionary<string, ScrapEntry> scrapCatelog = new Dictionary<string, ScrapEntry>();
+		public static List<ScrapEntry> _scrapItems = [];
+		public static List<string> _allMoons = ["ExperimentationLevel", "AssuranceLevel", "VowLevel", "OffenseLevel", "MarchLevel", "RendLevel", "DineLevel", "TitanLevel"];
+		public static List<string> _nonEasyMoons = ["ExperimentationLevel", "AssuranceLevel", "VowLevel", "OffenseLevel", "MarchLevel", "RendLevel", "DineLevel", "TitanLevel"];
 		public static void Activate()
 		{
-			_scrapItems.Add(new ScrapEntry("Assets/Scrap/Gino/GinoScrap.asset", 5, _allMoons));
+			scrapCatelog.Add("GinoScrap", new ScrapEntry("Assets/Scrap/Gino/GinoScrap.asset", 5, _allMoons));
+			scrapCatelog.Add("GnomeScrap", new ScrapEntry("Assets/Scrap/Gnome/GnomeScrap.asset", 15, _nonEasyMoons));
+			scrapCatelog.Add("DollScrap", new ScrapEntry("Assets/Scrap/Doll/DollScrap.asset", 30, _allMoons));
+			scrapCatelog.Add("LanternScrap", new ScrapEntry("Assets/Scrap/Lantern/LanternScrap.asset", 25, _nonEasyMoons));
+
+			_scrapItems.AddRange(scrapCatelog.Values);
 			//Activate Patches for Scrap Items
 			On.GameNetworkManager.Start += GameNetworkManager_Start;
 			On.StartOfRound.Awake += StartOfRound_Awake;
@@ -59,7 +66,6 @@ namespace NooshMod
 	{
 		public ScrapEntry(string assetpath, int rarity, List<string> levels) : this()
 		{
-
 			item = Plugin.NooshAssets.LoadAsset<Item>(assetpath); ;
 			this.rarity = rarity;
 			this.levels = levels;

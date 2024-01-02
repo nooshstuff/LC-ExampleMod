@@ -19,7 +19,7 @@ namespace NooshMod
 					return;
 				}
 			}
-			__instance.jumpForce = 5;
+			__instance.jumpForce = 13;
 		}
 	}
 }

@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c30496d6ae6d6f907456e10a94e01ec6, type: 3}
-  m_Name: GinoScrap
+  m_Name: GnomeScrap
   m_EditorClassIdentifier: 
   itemId: 0
-  itemName: Gino Fratelli
+  itemName: Gnome
   spawnPositionTypes: []
-  twoHanded: 0
-  twoHandedAnimation: 0
+  twoHanded: 1
+  twoHandedAnimation: 1
   canBeGrabbedBeforeGameStart: 1
-  weight: 1.33
+  weight: 1.69
   itemIsTrigger: 0
   holdButtonUse: 0
   itemSpawnsOnGround: 1
@@ -27,21 +27,21 @@ MonoBehaviour:
   creditsWorth: 0
   lockedInDemo: 0
   highestSalePercentage: 80
-  maxValue: 999
-  minValue: 1
-  spawnPrefab: {fileID: 1382549927036106672, guid: c9fa09f7e86f84545af38abd2379f1c5,
+  maxValue: 480
+  minValue: 240
+  spawnPrefab: {fileID: 4874219053469324804, guid: 5f16318e926010e4fa7ec6e0de0ae229,
     type: 3}
   requiresBattery: 0
-  batteryUsage: 0
+  batteryUsage: 5
   automaticallySetUsingPower: 1
-  itemIcon: {fileID: 21300000, guid: ef9a019160f625a44aa3d3a6cddaa226, type: 3}
+  itemIcon: {fileID: 21300000, guid: 7ce259299f646c541beee4de1e7b1ba3, type: 3}
   grabAnim: 
   useAnim: 
   pocketAnim: 
   throwAnim: 
   grabAnimationTime: 0
-  grabSFX: {fileID: 8300000, guid: 7fd4305a87702a7489ab2e015f13db8d, type: 3}
-  dropSFX: {fileID: 8300000, guid: 32abf330fee80e04d8177ad931bdfc7f, type: 3}
+  grabSFX: {fileID: 8300000, guid: 6237c55da2ae9024dbfc5e9a56e53e17, type: 3}
+  dropSFX: {fileID: 8300000, guid: 83b3c6a2a233c8149b10c4b27559abbc, type: 3}
   pocketSFX: {fileID: 0}
   throwSFX: {fileID: 0}
   syncGrabFunction: 0
@@ -51,12 +51,12 @@ MonoBehaviour:
   saveItemVariable: 0
   isDefensiveWeapon: 0
   toolTips: []
-  verticalOffset: 0.05
-  floorYOffset: -90
-  allowDroppingAheadOfPlayer: 0
-  restingRotation: {x: 0, y: 0, z: 180}
-  rotationOffset: {x: 0, y: 90, z: 50}
-  positionOffset: {x: -0.1, y: 0.14, z: 0}
+  verticalOffset: 0
+  floorYOffset: 90
+  allowDroppingAheadOfPlayer: 1
+  restingRotation: {x: -90, y: 0, z: 0}
+  rotationOffset: {x: 0, y: 90, z: 45}
+  positionOffset: {x: -0.55, y: 0.275, z: -0.15}
   meshOffset: 0
   meshVariants: []
   materialVariants: []
