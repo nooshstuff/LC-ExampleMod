@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c30496d6ae6d6f907456e10a94e01ec6, type: 3}
-  m_Name: LanternScrap
+  m_Name: ExplosiveBarrelScrap
   m_EditorClassIdentifier: 
   itemId: 0
-  itemName: Lantern
+  itemName: Explosive Barrel
   spawnPositionTypes: []
-  twoHanded: 0
-  twoHandedAnimation: 0
+  twoHanded: 1
+  twoHandedAnimation: 1
   canBeGrabbedBeforeGameStart: 1
-  weight: 1.25
+  weight: 1.69
   itemIsTrigger: 0
   holdButtonUse: 0
   itemSpawnsOnGround: 1
@@ -27,12 +27,12 @@ MonoBehaviour:
   creditsWorth: 0
   lockedInDemo: 0
   highestSalePercentage: 80
-  maxValue: 120
-  minValue: 45
-  spawnPrefab: {fileID: 2033790296552265226, guid: 8f96f233d45abc7429146b7cc393d08a,
+  maxValue: 480
+  minValue: 240
+  spawnPrefab: {fileID: 4874219053469324804, guid: 862a5fb700265944cb1d6c3dc8a2155b,
     type: 3}
   requiresBattery: 0
-  batteryUsage: 0
+  batteryUsage: 5
   automaticallySetUsingPower: 1
   itemIcon: {fileID: 21300000, guid: ef9a019160f625a44aa3d3a6cddaa226, type: 3}
   grabAnim: 
@@ -40,8 +40,8 @@ MonoBehaviour:
   pocketAnim: 
   throwAnim: 
   grabAnimationTime: 0
-  grabSFX: {fileID: 8300000, guid: fe27f43849137da4580bd403b1155b9a, type: 3}
-  dropSFX: {fileID: 8300000, guid: 81281f8f6baea5a41875759c95e08a72, type: 3}
+  grabSFX: {fileID: 8300000, guid: 6237c55da2ae9024dbfc5e9a56e53e17, type: 3}
+  dropSFX: {fileID: 8300000, guid: 83b3c6a2a233c8149b10c4b27559abbc, type: 3}
   pocketSFX: {fileID: 0}
   throwSFX: {fileID: 0}
   syncGrabFunction: 0
@@ -52,11 +52,11 @@ MonoBehaviour:
   isDefensiveWeapon: 0
   toolTips: []
   verticalOffset: 0
-  floorYOffset: 0
-  allowDroppingAheadOfPlayer: 0
+  floorYOffset: 90
+  allowDroppingAheadOfPlayer: 1
   restingRotation: {x: -90, y: 0, z: 0}
-  rotationOffset: {x: -5, y: 85, z: -60}
-  positionOffset: {x: -0.25, y: 0.05, z: -0.04}
+  rotationOffset: {x: 0, y: 90, z: 45}
+  positionOffset: {x: -0.55, y: 0.275, z: -0.15}
   meshOffset: 0
   meshVariants: []
   materialVariants: []

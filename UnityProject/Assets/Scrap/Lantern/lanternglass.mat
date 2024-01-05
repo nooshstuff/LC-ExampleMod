@@ -29,9 +29,12 @@ Material:
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
   - _ALPHATEST_ON
+  - _DISABLE_DECALS
   - _DISABLE_SSR_TRANSPARENT
   - _ENABLE_FOG_ON_TRANSPARENT
+  - _MATERIAL_FEATURE_TRANSMISSION
   - _NORMALMAP_TANGENT_SPACE
+  - _REFRACTION_THIN
   - _SURFACE_TYPE_TRANSPARENT
   m_InvalidKeywords: []
   m_LightmapFlags: 4
@@ -175,7 +178,7 @@ Material:
     - _DetailNormalScale: 1
     - _DetailSmoothnessScale: 1
     - _DiffusionProfile: 0
-    - _DiffusionProfileHash: 0
+    - _DiffusionProfileHash: 3.6624484
     - _DisplacementLockObjectScale: 1
     - _DisplacementLockTilingScale: 1
     - _DisplacementMode: 0
@@ -204,11 +207,11 @@ Material:
     - _HeightTessAmplitude: 2
     - _HeightTessCenter: 0.5
     - _InvTilingScale: 1
-    - _Ior: 2.336
+    - _Ior: 1.52
     - _IridescenceMask: 1
     - _IridescenceThickness: 1
     - _LinkDetailsWithBase: 1
-    - _MaterialID: 1
+    - _MaterialID: 5
     - _Metallic: 0.88095236
     - _MetallicRemapMax: 1
     - _MetallicRemapMin: 0
@@ -228,8 +231,8 @@ Material:
     - _RayTracing: 0
     - _ReceivesSSR: 1
     - _ReceivesSSRTransparent: 0
-    - _RefractionModel: 0
-    - _Smoothness: 0.5952381
+    - _RefractionModel: 3
+    - _Smoothness: 0.625
     - _SmoothnessRemapMax: 1
     - _SmoothnessRemapMin: 0
     - _SmoothnessTextureChannel: 0
@@ -247,11 +250,11 @@ Material:
     - _StencilWriteMaskGBuffer: 15
     - _StencilWriteMaskMV: 41
     - _SubsurfaceMask: 1
-    - _SupportDecals: 1
+    - _SupportDecals: 0
     - _SurfaceType: 1
     - _TexWorldScale: 1
     - _TexWorldScaleEmissive: 1
-    - _Thickness: 1
+    - _Thickness: 0.21
     - _TransmissionEnable: 1
     - _TransmissionMask: 1
     - _TransparentBackfaceEnable: 0
@@ -275,7 +278,7 @@ Material:
     - _BaseColor: {r: 1, g: 0.86274517, b: 0.5058824, a: 0.1}
     - _BaseColorMap_MipInfo: {r: 0, g: 0, b: 0, a: 0}
     - _Color: {r: 1, g: 0.86274517, b: 0.5058824, a: 0.1}
-    - _DiffusionProfileAsset: {r: 0, g: 0, b: 0, a: 0}
+    - _DiffusionProfileAsset: {r: -0.00050902617, g: 8.385614e+31, b: 24.475449, a: 1.9085691e+28}
     - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
     - _EmissiveColor: {r: 0, g: 0, b: 0, a: 0}
@@ -284,8 +287,23 @@ Material:
     - _IridescenceThicknessRemap: {r: 0, g: 1, b: 0, a: 0}
     - _SpecularColor: {r: 1, g: 1, b: 1, a: 1}
     - _ThicknessRemap: {r: 0, g: 1, b: 0, a: 0}
-    - _TransmittanceColor: {r: 1, g: 1, b: 1, a: 0.28235295}
+    - _TransmittanceColor: {r: 1, g: 0.8627451, b: 0.5058824, a: 0.101960786}
     - _UVDetailsMappingMask: {r: 1, g: 0, b: 0, a: 0}
     - _UVMappingMask: {r: 1, g: 0, b: 0, a: 0}
     - _UVMappingMaskEmissive: {r: 1, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
+--- !u!114 &9034330548278899581
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa486462e6be1764e89c788ba30e61f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_DiffusionProfileReferences:
+  - {fileID: 11400000, guid: 2b7005ba3a4d8474b8cdc34141ad766e, type: 2}
+  m_MaterialReferences: []

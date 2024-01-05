@@ -20,6 +20,8 @@ namespace NooshMod
 			scrapCatelog.Add("DollScrap", new ScrapEntry("Assets/Scrap/Doll/DollScrap.asset", 30, _allMoons));
 			scrapCatelog.Add("LanternScrap", new ScrapEntry("Assets/Scrap/Lantern/LanternScrap.asset", 25, _nonEasyMoons));
 
+			scrapCatelog.Add("ExplosiveBarrelScrap", new ScrapEntry("Assets/Scrap/ExplosiveBarrel/ExplosiveBarrelScrap.asset", 5, _allMoons));
+
 			_scrapItems.AddRange(scrapCatelog.Values);
 			//Activate Patches for Scrap Items
 			On.GameNetworkManager.Start += GameNetworkManager_Start;

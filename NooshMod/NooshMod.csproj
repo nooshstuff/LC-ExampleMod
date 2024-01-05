@@ -19,13 +19,21 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="NicholaScott.BepInEx.RuntimeNetcodeRPCValidator" Version="0.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\NooshMod.Unity\NooshMod.Unity.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Reference Include="MMHOOK_Assembly-CSharp">
       <HintPath>..\..\vs_includes\MMHOOK_Assembly-CSharp.dll</HintPath>
     </Reference>
   </ItemGroup>
 
   <Target Name="IncludeBundle" BeforeTargets="PreBuildEvent" Condition="true">
-    <MakeDir Directories="$(TargetDir)publish" Condition="!Exists('$(TargetDir)publish')"/>
+    <MakeDir Directories="$(TargetDir)publish" Condition="!Exists('$(TargetDir)publish')" />
     <Exec Command="cp $(SolutionDir)AssetBundles/nooshmod $(TargetDir)publish/" />
   </Target>
 </Project>

@@ -1,4 +1,5 @@
 ﻿using BepInEx.Configuration;
+using RuntimeNetcodeRPCValidator;
 using System.Reflection;
 using Unity.Netcode;
 using UnityEngine;
@@ -8,19 +9,23 @@ using UnityEngine;
 namespace NooshMod
 {
 	[BepInPlugin(GeneratedPluginInfo.Identifier, GeneratedPluginInfo.Name, GeneratedPluginInfo.Version)]
+	[BepInDependency(MyPluginInfo.PLUGIN_GUID, MyPluginInfo.PLUGIN_VERSION)]
 	public class Plugin : BaseUnityPlugin
 	{
 		internal static AssetBundle? NooshAssets;
 		internal static Plugin? Instance;
 		internal static BepInEx.Logging.ManualLogSource? log;
 		internal static ConfigEntry<bool>? configBigJumpEnabled;
-		private void Awake()
+		private NetcodeValidator? netcodeValidator;
+	private void Awake()
 		{
 			if (Instance == null) { Instance = this; }
 			log = Logger;
 			Assembly OwnAssembly = Assembly.GetExecutingAssembly();
+			netcodeValidator = new NetcodeValidator(GeneratedPluginInfo.Identifier);
+			netcodeValidator.PatchAll();
 
-			NooshAssets = AssetBundle.LoadFromFile(Path.Combine(Path.GetDirectoryName(OwnAssembly.Location), "nooshmod"));
+		NooshAssets = AssetBundle.LoadFromFile(Path.Combine(Path.GetDirectoryName(OwnAssembly.Location), "nooshmod"));
 
 			configBigJumpEnabled = Config.Bind("Toggles", "BigJumpEnabled", false, "Enable giga jump");
 
@@ -32,8 +37,12 @@ namespace NooshMod
 
 			Logger.LogInfo($"Plugin {GeneratedPluginInfo.Identifier} is loaded!");
 		}
+		private void OnDestroy()
+		{
+			netcodeValidator.Dispose();
+		}
 
-		private void PlayerControllerB_Update_Funnybusiness(On.GameNetcodeStuff.PlayerControllerB.orig_Update orig, GameNetcodeStuff.PlayerControllerB self)
+	private void PlayerControllerB_Update_Funnybusiness(On.GameNetcodeStuff.PlayerControllerB.orig_Update orig, GameNetcodeStuff.PlayerControllerB self)
 		{
 			orig(self); // this is like super.update() in other langauges. code's relative location to this is like doing prefix and postfix
 			if (self.isSprinting) {
